@@ -146,12 +146,12 @@ int main()
 	cout << " Number of ways (1, 2, 4,8and 16)" << endl;
 	cin >> ways;
 	
-	set_number = ((CACHE_SIZE / ways) / Cache_line_size);
+	set_number = ((CACHE_SIZE / ways) / Cache_line_size); //calculating the how many sets do we have
 	Data_size = Cache_line_size / 4;
-	cach_width = ((Data_size + 2) * ways);
-	vector<vector<unsigned>> cache(set_number, vector<unsigned>(cach_width));
-	vector<unsigned int> counters(set_number);
-	index_length = log2(set_number);
+	cach_width = ((Data_size + 2) * ways); //v+tag =2 ,2+data size = width of one way so we multiply it by number of ways to get cach_width
+	vector<vector<unsigned>> cache(set_number, vector<unsigned>(cach_width));//generating the cache
+	vector<unsigned int> counters(set_number); // use this vector to apply FIFO replacment policy
+	index_length = log2(set_number);//dividing the address between the tag and the index and the offset
 	offset_length = log2(Cache_line_size);
 	tag_length = 26 - index_length - offset_length;
 
