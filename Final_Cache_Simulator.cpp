@@ -22,6 +22,7 @@ unsigned int rand_()
 	m_w = 18000 * (m_w & 65535) + (m_w >> 16);
 	return (m_z << 16) + m_w;  /* 32-bit result */
 }
+
 unsigned int memGen1()
 {
 	static unsigned int addr = 0;
@@ -56,14 +57,18 @@ unsigned int memGen6()
 	static unsigned int addr = 0;
 	return (addr += 32) % (64 * 4 * 1024);
 }
-
+//n way set associative cache simulator
 cacheResType cacheSim_set_associative(unsigned int addr, vector<vector<unsigned>>& cache, int index_length, int offset_length, int ways, int Data_size, vector<unsigned int>& counters)
 {
+	//masking the tag ,index 
 	unsigned int temp = (pow(2, index_length) - 1);
 	unsigned int tag = addr >> (index_length + offset_length);
 	unsigned int index = (addr >> offset_length) & temp;
+	//boolean to make sure that we do not have coldstart miss
 	bool not_coldstart = false;
+	// this int is used to know if all valiad bits are true or not
 	int number_of_initized_slotsinset = 0;
+	//this for loop to initialize the not_coldstart and the number_of_initized_slotsinset
 	for (int i = 0; i < ways; i++)
 	{
 		if (cache[index][i * (Data_size + 2)] == 1)
@@ -72,8 +77,10 @@ cacheResType cacheSim_set_associative(unsigned int addr, vector<vector<unsigned>
 			number_of_initized_slotsinset++;
 		}
 	}
+	//if it is clodstart it is miss and update the valaid bit and the tag
 	if (not_coldstart)
 	{
+		//if the valiad bit is true, check if it is the same tage then it is hit 
 		for (int i = 0; i < ways; i++)
 		{
 			if (cache[index][(i * (Data_size + 2)) + 1] == tag && cache[index][i * (Data_size + 2)] == 1)
@@ -81,6 +88,7 @@ cacheResType cacheSim_set_associative(unsigned int addr, vector<vector<unsigned>
 				return HIT;
 			}
 		}
+		//if it is not hit, return miss and decide where to put the new tage and put the valiad bit 1
 		if (number_of_initized_slotsinset == ways)
 		{
 			int Num = counters[index] % ways;
@@ -157,7 +165,7 @@ int main()
 
 	hit = 0;
 	cacheResType r;
-
+	//choosing which memgen to excute
 	switch (funcNum) {
 	case 1: {
 		for (int inst = 0; inst < NO_OF_Iterations; inst++)
