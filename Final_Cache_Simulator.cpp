@@ -146,6 +146,103 @@ int main()
 	unsigned int hit = 0;
 	unsigned int addr = 0;
 	int funcNum = 1;
+	//For Test Case 1
+	//ways = 4;
+	//Cache_line_size = 32; //5 bits offset
+	//set_number = ((CACHE_SIZE / ways) / Cache_line_size);
+	//Data_size = Cache_line_size / 4;
+	//cach_width = ((Data_size + 2) * ways);
+	//vector<vector<unsigned>> cache(set_number, vector<unsigned>(cach_width));
+	//vector<unsigned int> counters(set_number);
+	//index_length = log2(set_number);
+	//offset_length = log2(Cache_line_size);
+	//tag_length = 26 - index_length - offset_length;
+	//hit = 0;
+	//cacheResType r;
+
+	//unsigned int address_test[10] = { 0x00000017, 0x000000db,0x00000118,0x0000006f ,0x0000010c ,0x0000012a ,0x00000021 ,0x0000003c ,0x00000099 ,0x00000001  };
+	//for (int inst = 0; inst < 10; inst++)
+	//{
+	//	addr = address_test[inst];
+	//	r = cacheSim_set_associative(addr, cache, index_length, offset_length, ways, Data_size, counters);
+	//	if (r == HIT) hit++;
+	//	cout << "0x" << setfill('0') << setw(8) << hex << addr << " (" << msg[r] << ")\n";
+	//}
+	//cout << dec << hit << endl;
+	//cout << "Hit ratio = " << (100 * (double)hit / 10) << "For memGen1() with ways = " << ways << " and Cache Line Size = " << Cache_line_size << " bytes" << endl;
+
+	//For Test Case 2
+	//ways = 16;
+	//Cache_line_size = 16; //5 bits offset
+	//set_number = ((CACHE_SIZE / ways) / Cache_line_size);
+	//Data_size = Cache_line_size / 4;
+	//cach_width = ((Data_size + 2) * ways);
+	//vector<vector<unsigned>> cache(set_number, vector<unsigned>(cach_width));
+	//vector<unsigned int> counters(set_number);
+	//index_length = log2(set_number);
+	//offset_length = log2(Cache_line_size);
+	//tag_length = 26 - index_length - offset_length;
+	//hit = 0;
+	//cacheResType r;
+	//unsigned int address_test[10] = { 0x0000003c,0x0000007d,0x000000f8,0x0000006c,0x000000c8,0x000000ec,0x00000033,0x00000037,0x0000009e,0x000000ca };
+	//for (int inst = 0; inst < 10; inst++)
+	//{
+	//	addr = address_test[inst];
+	//	r = cacheSim_set_associative(addr, cache, index_length, offset_length, ways, Data_size, counters);
+	//	if (r == HIT) hit++;
+	//	cout << "0x" << setfill('0') << setw(8) << hex << addr << " (" << msg[r] << ")\n";
+	//}
+	//cout << dec << hit << endl;
+	//cout << "Hit ratio = " << (100 * (double)hit / 10) << "For memGen1() with ways = " << ways << " and Cache Line Size = " << Cache_line_size << " bytes" << endl;
+
+	//For Test Case 3
+	//ways = 8;
+	//Cache_line_size = 128; //5 bits offset
+	//set_number = ((CACHE_SIZE / ways) / Cache_line_size);
+	//Data_size = Cache_line_size / 4;
+	//cach_width = ((Data_size + 2) * ways);
+	//vector<vector<unsigned>> cache(set_number, vector<unsigned>(cach_width));
+	//vector<unsigned int> counters(set_number);
+	//index_length = log2(set_number);
+	//offset_length = log2(Cache_line_size);
+	//tag_length = 26 - index_length - offset_length;
+	//hit = 0;
+	//cacheResType r;
+	//unsigned int address_test[10] = { 0x0000003f,0x00000044,0x00000019,0x000000f6,0x00000116,0x0000004c,0x00000034,0x00000170,0x000001aa,0x00000015 };
+	//for (int inst = 0; inst < 10; inst++)
+	//{
+	//	addr = address_test[inst];
+	//	r = cacheSim_set_associative(addr, cache, index_length, offset_length, ways, Data_size, counters);
+	//	if (r == HIT) hit++;
+	//	cout << "0x" << setfill('0') << setw(8) << hex << addr << " (" << msg[r] << ")\n";
+	//}
+	//cout << dec << hit << endl;
+	//cout << "Hit ratio = " << (100 * (double)hit / 10) << "For memGen1() with ways = " << ways << " and Cache Line Size = " << Cache_line_size << " bytes" << endl;
+
+	//For Test Case 4
+	//ways = 2;
+	//Cache_line_size = 64; //5 bits offset
+	//set_number = ((CACHE_SIZE / ways) / Cache_line_size);
+	//Data_size = Cache_line_size / 4;
+	//cach_width = ((Data_size + 2) * ways);
+	//vector<vector<unsigned>> cache(set_number, vector<unsigned>(cach_width));
+	//vector<unsigned int> counters(set_number);
+	//index_length = log2(set_number);
+	//offset_length = log2(Cache_line_size);
+	//tag_length = 26 - index_length - offset_length;
+	//hit = 0;
+	//cacheResType r;
+	//unsigned int address_test[10] = { 0x000001c9 ,0x00000076 ,0x0000015e ,0x00000081 ,0x000000bd ,0x00000079 ,0x00000050 ,0x00000069 ,0x000000ff ,0x00000004 };
+	//for (int inst = 0; inst < 10; inst++)
+	//{
+	//	addr = address_test[inst];
+	//	r = cacheSim_set_associative(addr, cache, index_length, offset_length, ways, Data_size, counters);
+	//	if (r == HIT) hit++;
+	//	cout << "0x" << setfill('0') << setw(8) << hex << addr << " (" << msg[r] << ")\n";
+	//}
+	//cout << dec << hit << endl;
+	//cout << "Hit ratio = " << (100 * (double)hit / 10) << "For memGen1() with ways = " << ways << " and Cache Line Size = " << Cache_line_size << " bytes" << endl;
+
 	//For User Input
 	cout << "Enter which function do you want to implement" << endl;
 	cin >> funcNum;
